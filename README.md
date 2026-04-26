@@ -15,7 +15,8 @@ API-key auth, public-key registration, and peer endpoint lookup.
 go install github.com/Bajusz15/beacon-vpn/cmd/beacon-vpn@latest
 ```
 
-Tagged releases build standalone binaries for macOS and Linux on AMD64/ARM64.
+Tagged releases build standalone binaries for macOS, Linux, and Windows on
+AMD64/ARM64.
 
 ## Usage
 
@@ -39,6 +40,10 @@ beacon-vpn connect my-home-pi
 
 `connect` runs in the foreground and keeps the tunnel alive until you press
 Ctrl+C. It deregisters the client on shutdown.
+
+On Windows, run `beacon-vpn connect` from an elevated terminal. The client uses
+Wintun and expects `wintun.dll` to be available next to the executable or on
+`PATH`.
 
 Show saved local configuration:
 

@@ -17,12 +17,22 @@ jobs:
         include:
           - goos: darwin
             goarch: arm64
+            ext: ""
           - goos: darwin
             goarch: amd64
+            ext: ""
           - goos: linux
             goarch: arm64
+            ext: ""
           - goos: linux
             goarch: amd64
+            ext: ""
+          - goos: windows
+            goarch: arm64
+            ext: ".exe"
+          - goos: windows
+            goarch: amd64
+            ext: ".exe"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -37,9 +47,10 @@ jobs:
           GOOS: ${{ matrix.goos }}
           GOARCH: ${{ matrix.goarch }}
           CGO_ENABLED: "0"
+          EXT: ${{ matrix.ext }}
         run: |
           mkdir -p dist
-          go build -trimpath -ldflags="-s -w" -o "dist/beacon-vpn-${GOOS}-${GOARCH}" ./cmd/beacon-vpn
+          go build -trimpath -ldflags="-s -w" -o "dist/beacon-vpn-${GOOS}-${GOARCH}${EXT}" ./cmd/beacon-vpn
 
       - name: Checksums
         run: |
