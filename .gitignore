@@ -1,0 +1,48 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+beacon-vpn
+beacon-vpn-*
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool
+*.out
+coverage.txt
+coverage.html
+
+# Go workspace file
+go.work
+
+# Vendor directory
+vendor/
+
+# IPC and runtime files
+ipc/
+*.json.tmp
+
+# Log files
+*.log
+
+# Environment files
+*.env
+!beacon.env
+
+# OS-specific
+.DS_Store
+*~
+
+# Editor files
+.vscode/
+*.swp
+*.swo
+*.swn
+
+# Temporary files
+tmp/
+temp/
+.idea/
